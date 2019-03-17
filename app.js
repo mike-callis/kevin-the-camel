@@ -8,16 +8,20 @@ var port = process.env.PORT || 3000;
 var server = http.createServer(function(req, res){
     console.log('url requested: ' + req.url);
 
-//    res.writeHead(200, {'content-Type': 'text/plain'});
-//    res.end('Hey Kevin !');
-
-    res.writeHead(200, {'content-Type': 'text/html'});
-    var myReadStream = fs.createReadStream(__dirname + '/index.html', {'Content-Type': 'utf8'});
-
-    myReadStream.on('open', function(){
-        myReadStream.pipe(res);
-    });
-    //myReadStream.pipe(res)
+    if (req.url === '/home' || req.url === '/'){
+        res.writeHead(200, {'content-Type': 'text/html'});
+        fs.createReadStream(__dirname + '/index.html', {'Content-Type': 'utf8'}).pipe(res);
+    } else if (req.url === '/contact'){
+        res.writeHead(200, {'content-Type': 'text/html'});
+        fs.createReadStream(__dirname + '/contact.html', {'Content-Type': 'utf8'}).pipe(res);       
+    } else if (req.url === '/api/names'){
+        var people = [{name: 'Albert', age: 37}, {name: 'Malcolm', age: 25}];
+        res.writeHead(200, {'content-Type': 'application/json'});
+        res.end(JSON.stringify(people));
+    } else {
+        res.writeHead(404, {'content-Type': 'text/html'});
+        fs.createReadStream(__dirname + '/404.html').pipe(res);        
+    }
 });
 
 
