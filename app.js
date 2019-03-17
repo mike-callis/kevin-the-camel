@@ -12,7 +12,7 @@ var server = http.createServer(function(req, res){
 //    res.end('Hey Kevin !');
 
     res.writeHead(200, {'content-Type': 'text/html'});
-    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
+    var myReadStream = fs.createReadStream(__dirname + '/index.html', {'Content-Type': 'utf8'});
 
     myReadStream.on('open', function(){
         myReadStream.pipe(res);
