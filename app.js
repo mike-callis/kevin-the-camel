@@ -7,8 +7,12 @@ var port = process.env.PORT || 3000;
 
 var server = http.createServer(function(req, res){
     console.log('request was made: ' + req.url);
-    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
-    myReadStream.pipe(res)
+
+    res.writeHead(200, {'content-Type': 'text/plain'});
+    res.end('Hey Kevin !');
+
+//    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
+//    myReadStream.pipe(res)
 });
 
 
