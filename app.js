@@ -6,7 +6,7 @@ var fs = require('fs')
 var port = process.env.PORT || 3000;
 
 var server = http.createServer(function(req, res){
-    console.log('request was made: ' + req.url);
+    console.log('url requested: ' + req.url);
 
 //    res.writeHead(200, {'content-Type': 'text/plain'});
 //    res.end('Hey Kevin !');
