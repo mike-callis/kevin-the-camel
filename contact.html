@@ -5,10 +5,47 @@
             body{background: skyblue; font-family: verdana; color: white; padding: 30px}
             h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center}
             p{font-size: 16px; text-align: center}
-        </style>     
+        </style>  
+        <!--Script Reference[1]-->
+        <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
     </head>
     <body>
         <h1>Contacts</h1>
-        <p>contact details for Kevin the camel</p>
+        <p>contact details for Kevin the camel and his friends</p>
+
+        <!--Grid Component Placement[2]-->
+        <zing-grid
+            caption="Kevin the Camel - Enterprises"
+            data='[
+            {
+                "name": "Kevin Camel",
+                "age": "23",
+                "colour": "blue",
+                "currency": "GBP",
+                "crypto": "XMR"
+            },
+            {
+                "name": "Mark Woods",
+                "age": "27",
+                "colour": "yellow",
+                "currency": "GBP",
+                "crypto": "XBT"
+            },
+            {
+                "name": "Janice Long",
+                "age": "43",
+                "colour": "purple",
+                "currency": "USD",
+                "crypto": "XBT"
+            },
+            {
+                "name": "Lucy Clark",
+                "age": "33",
+                "colour": "red",
+                "currency": "EUR",
+                "crypto": "LTC"
+            }           
+        ]'>
+      </zing-grid>
     </body>
 </html>

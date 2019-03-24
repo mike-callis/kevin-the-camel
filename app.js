@@ -10,10 +10,10 @@ var server = http.createServer(function(req, res){
 
     if (req.url === '/home' || req.url === '/'){
         res.writeHead(200, {'content-Type': 'text/html'});
-        fs.createReadStream(__dirname + '/index.html', {'Content-Type': 'utf8'}).pipe(res);
+        fs.createReadStream(__dirname + '/index.html').pipe(res);
     } else if (req.url === '/contact'){
         res.writeHead(200, {'content-Type': 'text/html'});
-        fs.createReadStream(__dirname + '/contact.html', {'Content-Type': 'utf8'}).pipe(res);       
+        fs.createReadStream(__dirname + '/contact.html').pipe(res);       
     } else if (req.url === '/api/names'){
         var people = [{name: 'Albert', age: 37}, {name: 'Malcolm', age: 25}];
         res.writeHead(200, {'content-Type': 'application/json'});
