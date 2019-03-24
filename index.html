@@ -13,30 +13,15 @@
         <p>He is sitting down !</p>
 
         <button id="getButton" onclick="get()">GET</button>
-        <button id="contactButton" onclick="window.location='http://localhost:3000/contact';">CONTACT</button>
+        <button id="contactButton" onclick="window.location='./contact';">CONTACT</button>
 
         <pre id="getResponse"></pre>
 
         <script>
-            function contact(){
-                $.ajax({
-                    type: 'Get',
-                    url: 'http://localhost:3000/contact',
-                    dataType: 'http'
-                })
-                .done(function(data){
-                    console.log('Get response:', data);
-                })
-                .fail(function(jqXHR, textStatus, err){
-                    console.log('AJAX error response:', textStatus, err);
-                }); 
-            }
-            
-
             function get(){
                 $.ajax({
                     type: 'Get',
-                    url: 'http://localhost:3000/ajaxcall',
+                    url: './ajaxcall',
                     dataType: 'json'
                 })
                 .done(function(data){
