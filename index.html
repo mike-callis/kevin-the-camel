@@ -5,10 +5,48 @@
             body{background: skyblue; font-family: verdana; color: white; padding: 30px}
             h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center}
             p{font-size: 16px; text-align: center}
-        </style>     
+        </style>  
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
     <body>
         <h1>Welcome to Kevin the Camel</h1>
         <p>He is sitting down !</p>
+
+        <button id="getButton" onclick="get()">GET</button>
+        <button id="contactButton" onclick="window.location='http://localhost:3000/contact';">CONTACT</button>
+
+        <pre id="getResponse"></pre>
+
+        <script>
+            function contact(){
+                $.ajax({
+                    type: 'Get',
+                    url: 'http://localhost:3000/contact',
+                    dataType: 'http'
+                })
+                .done(function(data){
+                    console.log('Get response:', data);
+                })
+                .fail(function(jqXHR, textStatus, err){
+                    console.log('AJAX error response:', textStatus, err);
+                }); 
+            }
+            
+
+            function get(){
+                $.ajax({
+                    type: 'Get',
+                    url: 'http://localhost:3000/ajaxcall',
+                    dataType: 'json'
+                })
+                .done(function(data){
+                    console.log('Get response:', JSON.stringify(data, "", 2));
+                    $('#getResponse').html(JSON.stringify(data, "", 2));
+                })
+                .fail(function(jqXHR, textStatus, err){
+                    console.log('AJAX error response:', textStatus);
+                });
+            }
+        </script>
     </body>
 </html>

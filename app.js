@@ -12,12 +12,22 @@ var server = http.createServer(function(req, res){
         res.writeHead(200, {'content-Type': 'text/html'});
         fs.createReadStream(__dirname + '/index.html').pipe(res);
     } else if (req.url === '/contact'){
+        console.log('1234');
         res.writeHead(200, {'content-Type': 'text/html'});
         fs.createReadStream(__dirname + '/contact.html').pipe(res);       
     } else if (req.url === '/api/names'){
         var people = [{name: 'Albert', age: 37}, {name: 'Malcolm', age: 25}];
         res.writeHead(200, {'content-Type': 'application/json'});
         res.end(JSON.stringify(people));
+    } else if (req.url === '/ajaxcall'){
+        var data = {
+            contactID: 1,
+            firstName: 'Kevin',
+            lastName: 'Camel',
+            Age: 27
+        };
+        res.writeHead(200, {'content-Type': 'application/json'});
+        res.end(JSON.stringify(data));
     } else {
         res.writeHead(404, {'content-Type': 'text/html'});
         fs.createReadStream(__dirname + '/404.html').pipe(res);        
