@@ -16,38 +16,9 @@
         <button id="homeButton" onclick="window.location='./';">HOME</button>
 
         <!--Grid Component Placement[2]-->
-        <zing-grid
-            caption="Kevin the Camel - Enterprises"
-            data='[
-            {
-                "name": "Kevin Camel",
-                "age": "23",
-                "colour": "blue",
-                "currency": "GBP",
-                "crypto": "XMR"
-            },
-            {
-                "name": "Mark Woods",
-                "age": "27",
-                "colour": "yellow",
-                "currency": "GBP",
-                "crypto": "XBT"
-            },
-            {
-                "name": "Janice Long",
-                "age": "43",
-                "colour": "purple",
-                "currency": "USD",
-                "crypto": "XBT"
-            },
-            {
-                "name": "Lucy Clark",
-                "age": "33",
-                "colour": "red",
-                "currency": "EUR",
-                "crypto": "LTC"
-            }           
-        ]'>
-      </zing-grid>
+        <zing-grid           
+            caption="Kevin the Camel - Enterprises">
+            <zg-data src="./names.json"></zg-data>
+        </zing-grid>
     </body>
 </html>

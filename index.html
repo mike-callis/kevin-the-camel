@@ -13,11 +13,25 @@
         <p>He is sitting down !</p>
 
         <button id="getButton" onclick="get()">GET</button>
-        <button id="contactButton" onclick="window.location='./contact';">CONTACT</button>
+        <button id="conButton" onclick="contact()">CONTACT</button>
 
         <pre id="getResponse"></pre>
 
         <script>
+            function contact(){
+                $.ajax({
+                    type: 'Get',
+                    url: './contact',
+                    dataType: 'html'
+                })
+                .done(function(data){
+                    $("body").html(data);
+                    //window.location.href = url;
+                })
+                .fail(function(jqXHR, textStatus, err){
+                    console.log('AJAX error response:', textStatus);
+                });
+            }
             function get(){
                 $.ajax({
                     type: 'Get',
